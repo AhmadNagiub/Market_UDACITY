@@ -1,0 +1,13 @@
+footer{
+    background: #33B5E5;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 20px;
+    height: 65px;
+}
+footer span{
+    color: rgb(4, 20, 30);
+}

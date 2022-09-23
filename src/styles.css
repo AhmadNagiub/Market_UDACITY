@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+ul li {
+    list-style: none;
+}
+.price{
+    margin: 10px 0px;
+}
+.select-input {
+    width: 108px; 
+    margin-bottom: 8px;
+    margin-top: 8px;
+    outline: none;
+    padding: 5px;
+}
+
+.select-input option{
+    background-color: #333;
+    color: white;
+}
+
+.button{
+    padding: 8px 5px;
+    min-width: 108px;
+    outline: none;
+    border: none;
+    background-color:#337ab7;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+.button:hover{
+    background-color: #206bacdc;
+}

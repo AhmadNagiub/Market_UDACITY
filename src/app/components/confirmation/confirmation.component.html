@@ -1,0 +1,21 @@
+<div class="confirmation-container">
+
+
+    <div class="confirmation-header">
+       <h2>Success!</h2>  <img src="../../../assets/download (2).png" alt="">
+    </div>
+    <div class="confirmation-items">
+        <div class="confirmation-item">
+            Thank you , <span>{{order?.fullName |uppercase}}</span>
+        </div>
+        <div class="confirmation-item">
+            Your <span>{{total |currency}}</span> order is confirmed
+        </div>
+
+        <div class="confirmation-item">
+            please wiat for 1 - 3 day(s) for shipping
+        </div>
+    </div>
+
+    <button class="button" routerLink="/">Back to product List</button>
+</div>

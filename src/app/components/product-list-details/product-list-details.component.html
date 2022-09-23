@@ -1,0 +1,26 @@
+<div class="detail-container" *ngIf="prodDetails">
+    <div class="detail-item">
+        <div class="image">
+            <img [src]="prodDetails.url" alt="">
+        </div>
+        <div class="details">
+            <h2 class="name">{{prodDetails.name}}</h2>
+            <div class="price">{{prodDetails.price | currency}}</div>
+            <!-- <app-select [product]="prodDetails" [desc]="true" ></app-select> -->
+            <!-- Select -->
+            <form [formGroup]="addCart" >
+                 <select formControlName="amount" class="select-input">
+                    <option value="select" selected disabled>select</option>
+                    <option *ngFor="let option of options " [value]="option">{{option}}</option>
+                </select>
+            </form> 
+            <br>
+            <div  class="desc">{{prodDetails.description}}
+<br>
+<br>
+            <!-- Button -->
+            <button type="submit" (click)="addToCart()"  class="button">Add to cart</button>
+            <div class="back-link" routerLink="/"> <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#33B5E5" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg> Back to product List</div>
+        </div>
+    </div>
+</div>

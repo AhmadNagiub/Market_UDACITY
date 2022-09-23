@@ -1,0 +1,64 @@
+
+<div class="empty-cart-message" *ngIf="!cartString">There is no Products in the cart GO and add some more</div>
+
+<div class="cart-panel" *ngIf="cartString">
+
+
+    <div class="cart-container">
+
+
+        <div *ngFor="let cart of carts ; let i = index " class="cart-item">
+            <div class="image">
+                <img [src]="cart.item.url" alt="">
+            </div>
+            <div class="cart-item-details">
+                <h2 class="name">{{cart.item.name}}</h2>
+                <div class="price">{{cart.item.price | currency}}</div>
+                <div class="number-input">
+                    <label for="">Amount</label>
+                    <input class="input" type="number" [(ngModel)]="cart.quantity" (change)="changeValue(i,$event)" >
+                </div>
+                <br>
+            </div>
+
+
+            
+        </div>
+    
+    
+        <div class="allTotal">
+            Total is : {{sum |currency}}
+        </div>
+    </div>
+
+
+    <form [formGroup]="confirmation" (ngSubmit)="confirm()" >
+        <label for="fullName">Full Name</label>
+        <input type="text" formControlName="fullName"  id="fullName" min="3" placeholder="(minimum 3 characters)" >
+        <div class="error" *ngIf="errorCheck('fullName')">
+            <span>*  required</span>
+            <span>* name can't be less than 3</span>
+        </div>
+        <label for="Address">Address</label>
+        <input type="text" formControlName="address"  id="Address" min="6" placeholder="(minimum 6 characters)">
+        <div class="error" *ngIf="errorCheck('address')">
+            <span>*  required</span>
+            <span>* address can't be less than 6</span>
+        </div>
+        <label for="credit">Credit card</label>
+        <input type="number" formControlName="credit"  id="credit" min="16" placeholder="(16-digits number)">
+        <div class="error" *ngIf="errorCheck('credit')">
+            <span>*  required</span>
+            <span>* credit card can't be less than 16</span>
+        </div>
+        <div class="hint">we will never share any of your payment methods</div>
+
+
+        <button type="submit">Submit</button>
+    </form>
+
+
+</div>
+<div class="message" *ngIf="msg">
+    Please fill these inputs
+</div>

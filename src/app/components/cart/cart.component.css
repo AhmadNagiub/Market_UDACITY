@@ -1,0 +1,109 @@
+
+  .cart-panel {
+    width: 60%;
+    display: flex;
+    margin: 30px auto;
+  }
+  .cart-container {
+
+    width: 50%;
+ 
+  }
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 50px;
+  }
+  .image{
+    border-radius: 10px;
+    overflow: hidden;
+    width: 30%;
+  }
+  img {
+    width: 100%;
+  }
+    
+  .cart-item-details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: left;
+    width: 50%;
+  }
+  .number-input {
+    text-align: center;
+    display: flex;
+}
+  .input{
+      width: 80px;
+      margin-left: 5px;
+      padding-left: 10px;
+  }
+  form{
+    width: 50%;
+  }
+
+  form label{
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+  }
+
+  form input{
+    width: 100%;
+    border: 1px solid #DDD;
+    outline: none;
+    height: 30px;
+    padding: 5px 8px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+  }
+  form input::placeholder{
+    font-size: 16px;
+  }
+  form input:focus{
+    border-color: #66afe9;
+    box-shadow: inset 5px 5px 5px rgba(0,0,0,.075),0 0 12px rgba(102,175,233,.7);
+  }
+
+  .empty-cart-message {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+  }
+
+  button{
+    color: white;
+    background-color: #217fcb;
+    border: none;
+    outline: none;
+    width: 60px;
+    height: 30px;
+    border-radius: 6px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  button:hover{
+    background-color: #053d6b;
+
+  }
+
+  .error{
+    background-color: #DDD;
+    padding: 15px;
+    color: red;
+    display: flex;
+    justify-content: space-between;
+  }
+  .allTotal{
+    font-weight: bold;
+    font-size: 20px;
+  }
+  .message{
+    background-color:rgb(198, 125, 125);
+    color: #fafafa;
+    padding: 20px;
+    text-align: center;
+  }
