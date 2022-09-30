@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class CartComponent implements OnInit {
 
   cartString = localStorage.getItem('cart');
-  carts:Array<{item:{price:any , name:any , url:any , id:any} , quantity:any}>=[];
+  carts:Cart[]=[];
   order:any = localStorage.getItem('orders');
   orders:Array<{}>=[];
   confirmation:FormGroup= new FormGroup({
@@ -25,10 +25,13 @@ export class CartComponent implements OnInit {
   
   ngOnInit(): void {
     this.orders = JSON.parse(this.order) ? JSON.parse(this.order) : []
-    if(this.cartString){
-      this.carts=JSON.parse(this.cartString)
-    }
+    this.addToCart()
+
     this.getTotal()
+  }
+  
+    addToCart():Observable<any>{
+    return this.carts = JSON.parse(this.cartString) ? JSON.parse(this.cartString) : []
   }
   errorCheck(controlName:any){
     return this.confirmation.get(controlName)?.errors && this.confirmation.get(controlName)?.touched
@@ -73,7 +76,7 @@ export class CartComponent implements OnInit {
     }
     
   }
-  changeValue(index:any,e:any){
+ changeValue(index:any,e:any){
    let updatedItem = {
     item:this.carts[index].item,
     quantity:this.carts[index].quantity 
@@ -85,4 +88,14 @@ export class CartComponent implements OnInit {
   }
 
 
+  Delete(item:any){
+    let newCarts = this.carts.filter(el=>el.item.id !== item.id);
+    localStorage.setItem('cart' , JSON.stringify(newCarts ));
+    window.location.reload()
+  }
+
+}
+interface Cart{
+  item:{price:any , name:any , url:any , id:any},
+  quantity:any
 }
