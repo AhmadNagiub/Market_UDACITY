@@ -39,6 +39,7 @@ options:Array<number> = [1,2,3,4,5,6,7,8,9,10];
         alert('product is Already in the cart')
       }
       else{
+                alert('product is added to the cart')
         this.cartPriducts.push({item:this.prodDetails, quantity:this.addCart.value.amount})
         localStorage.setItem('cart', JSON.stringify(this.cartPriducts))
       }
