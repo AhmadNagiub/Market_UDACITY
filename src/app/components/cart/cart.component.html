@@ -1,7 +1,7 @@
 
-<div class="empty-cart-message" *ngIf="!cartString">There is no Products in the cart GO and add some more</div>
+<div class="empty-cart-message" *ngIf="!carts[0]">There is no Products in the cart GO and add some more</div>
 
-<div class="cart-panel" *ngIf="cartString">
+<div class="cart-panel" *ngIf="carts[0]">
 
 
     <div class="cart-container">
@@ -16,7 +16,10 @@
                 <div class="price">{{cart.item.price | currency}}</div>
                 <div class="number-input">
                     <label for="">Amount</label>
-                    <input class="input" type="number" [(ngModel)]="cart.quantity" (change)="changeValue(i,$event)" >
+                    <input class="input" type="number" [(ngModel)]="cart.quantity" (change)="ngModelChange(i,$event)" >
+                </div>
+                <div class="delete">
+                    <button style="background-color:red" (click)="Delete(cart.item)">Delete</button>
                 </div>
                 <br>
             </div>
