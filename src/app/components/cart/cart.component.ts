@@ -91,9 +91,12 @@ export class CartComponent implements OnInit {
   Delete(item:any){
     let newCarts = this.carts.filter(el=>el.item.id !== item.id);
     localStorage.setItem('cart' , JSON.stringify(newCarts ));
-    window.location.reload()
+    this.reload('/cart')
   }
-
+   async reload(url: string): Promise<boolean> {
+    await this.route.navigateByUrl('/', { skipLocationChange: true });
+    return this.route.navigateByUrl(url);
+  }
 }
 interface Cart{
   item:{price:any , name:any , url:any , id:any},
