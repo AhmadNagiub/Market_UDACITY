@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit {
 
-  cartString = localStorage.getItem('cart');
+  cartString:any = localStorage.getItem('cart');
   carts:Cart[]=[];
   order:any = localStorage.getItem('orders');
   orders:Array<{}>=[];
@@ -30,7 +30,7 @@ export class CartComponent implements OnInit {
     this.getTotal()
   }
   
-    addToCart():Observable<any>{
+    addToCart(){
     return this.carts = JSON.parse(this.cartString) ? JSON.parse(this.cartString) : []
   }
   errorCheck(controlName:any){
