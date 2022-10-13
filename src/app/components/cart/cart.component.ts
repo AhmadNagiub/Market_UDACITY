@@ -91,6 +91,7 @@ export class CartComponent implements OnInit {
   Delete(item:any){
     let newCarts = this.carts.filter(el=>el.item.id !== item.id);
     localStorage.setItem('cart' , JSON.stringify(newCarts ));
+    alert('deleted successfully')
     this.reload('/cart')
   }
    async reload(url: string): Promise<boolean> {
